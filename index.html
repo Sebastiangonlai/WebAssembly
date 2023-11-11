@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WebAssembly</title>
+  <script src="hola.js"></script>
+</head>
+
+<body>
+  <h1 id="mainOut"></h1>
+  <h1 id="carOut"></h1>
+  <h1 id="numOut"></h1>
+  <script>
+    Module.onRuntimeInitialized = () => {
+      // Module._main();
+      const result = Module._main();
+      const result2 = Module._getCar();
+      const result3 = Module._getNum();
+      document.getElementById('mainOut').textContent = JSON.stringify(result);
+      document.getElementById('carOut').innerHTML = String.fromCharCode(result2);
+      document.getElementById('numOut').textContent = JSON.stringify(result3);
+    };
+  </script>
+</body>
+
+</html>
